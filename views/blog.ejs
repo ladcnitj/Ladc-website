@@ -1,0 +1,58 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+  integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="/css/blog.css">
+<script defer src='scripts/blog.js'></script>
+
+
+<div class='alum-nav'>
+  <button onclick='showModal(event)' class="btn btn-info">Submit</button>
+</div>
+
+<div onclick='hideModal.call(this,event);' class='cancel-button'>
+  <i class="fa fa-times"></i>
+</div>
+
+<div class='blog-submit'>
+  <form action="/blog" method="POST">
+    <div class="formmain">
+      <div class="formtitle">
+        <h4>Submit a blog</h4>
+      </div>
+      <div class="forminput">
+        <input type="text" class="form-control forminp" id="name" placeholder="Name" name="name">
+        <input type="text" class="form-control forminp" id="branch" placeholder="Branch" name="branch">
+        <div class="input-group mb-2">
+          <div class="input-group-prepend">
+            <div id='titleLabel' class="input-group-text">0/50</div>
+          </div>
+          <input type="text" class="form-control forminp" id="title" placeholder="Title" name="title" required>
+        </div>
+        <input type="text" class="form-control forminp" id="year" placeholder="Year" name="year">
+        <div class="input-group mb-2">
+          <div class="input-group-prepend">
+            <div id='descLabel' class="input-group-text">0/100</div>
+          </div>
+          <input type="text" class="form-control forminp" id="desc" placeholder="Short Description" name="desc"
+            required>
+        </div>
+        <input type="text" class="form-control forminp" id="imgurl" placeholder="Image URL (optional)" name="imgurl">
+        <div class="input-group mb-2">
+          <div class="input-group-prepend">
+            <div id='explanationLabel' class="input-group-text">0/1000</div>
+          </div>
+          <textarea class="form-control" name="explanation" id="explanation" cols="30" rows="5"
+            placeholder="Explanation"></textarea>
+        </div>
+        <button type="submit" class="btn btn-warning formbtn">Post</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+
+
+
+<div class="allParent">
+  <!-- end event block -->
+</div>
