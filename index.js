@@ -11,14 +11,14 @@ const app = express();
 const dotenv = require('dotenv');
 dotenv.config();
 const port = process.env.LOCAL_PORT; //when deployin to server we will change it to 80
-const expressLayouts = require('express-ejs-layouts');
-console.log('port is ', process.env.LOCAL_PORT);
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use(bodyParser.raw({limit : 10485760}))// FILE LIMIT 10 MB
+const expressLayouts = require("express-ejs-layouts");
+console.log("port is ", process.env.LOCAL_PORT);
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.raw({ limit: 10485760 })); // FILE LIMIT 10 MB
 
-app.use(express.static('./assets'));
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static("./assets"));
+// app.use(express.urlencoded({ extended: true }));
 
 app.use(
 	session({
