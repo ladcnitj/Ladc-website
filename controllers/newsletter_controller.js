@@ -62,25 +62,29 @@ async function sendMail(user,req){
         from: 'ladc@nitj.ac.in', // sender address
         to: user.email, // list of receivers
         subject: "LADC NewsLetter", // Subject line
-        html:`<body>
-        <div style="text-align: center;height:150px; background-color: aquamarine; padding-bottom: 20px;">
-        <img src="https://i.ibb.co/VYw8sTx/ladclogo.png" alt="" style="height:100px;">
-        
-        <h1 style="text-align: center; margin-top:0px;">LADC Newsletter</h1>
+        html:` <body style="border:2px solid rgb(14, 88, 93); ">
+        <div style="text-align: center;height:10%; padding-bottom: 20px;">
+        <img src="https://i.ibb.co/VYw8sTx/ladclogo.png" alt="" style="height:50%;">
+        <hr style="width: 70%; margin-top: -3%; color: #0e585d;">
+        <h1 style="text-align: center; margin-top:0px; color: rgb(14, 88, 93); font-family: cursive;">What's happening in LADC? </h1>
     </div>
-       <div>
-           <img style="height:300px; width:100%;" src="https://woub.org/wp-content/uploads/2019/10/hsieh_angela_politics_demdebates_4-2bf911b583226ad136844b664daa5dc9363512b7-e1571183130210.jpg" alt="">
-       </div>
-       <p style="font-family: Arial, Helvetica, sans-serif; font-weight:900; text-align: center;">
-       Hi ${user.name}, Here we are with our next Newsletter.
+       <div style=" padding-left: 15px; padding-right: 15px; margin-bottom: 10%; margin-left: 30px; margin-right: 30px;">
+        <p style="font-family: Arial, Helvetica, sans-serif; font-weight:900; text-align: center; ">
+          Hi ${user.name}, Here we are with our next Newsletter.
+    
+          </p>
+          <p style="font-family: Arial, Helvetica, sans-serif; font-weight:500; ">
+           ${req.body.newslettercontent}
+         
        </p>
-       <p style="font-family: Arial, Helvetica, sans-serif; font-weight:900; text-align: center;">
-        ${req.body.newslettercontent}
-    </p>
-    <form action="http://localhost:8000/unsubscribe" method="POST">
-        <input style="display: none;" type="text" name="email" id="email" value="${user.email}">
-     <button type="submit" style="background-color:aquamarine;" >Unscribe from newsletter</button>
-    </form>
+       </div>
+       <div style="background-color: #0e585d; text-align: center; padding: 1.5%;">
+        <form action="http://localhost:8000/unsubscribe" method="POST">
+          <input style="display: none;" type="text" name="email" id="email" value="${user.email}">
+       <button type="submit" style="background: none!important;border: none; padding: 0!important; text-decoration: underline;cursor: pointer; color: rgba(165, 165, 165, 0.801);" >Unsubscribe from newsletter</button>
+      </form>
+       </div>
+   
     </body>`
       });
 console.log('email sent');
